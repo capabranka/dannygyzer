@@ -20,6 +20,7 @@ a{
 }
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
 }
 
 .landing{
@@ -30,11 +31,12 @@ body{
     height: 400px;
     background-color: var(--landing-background);
 
+
+
     .landing_img{
         object-fit: cover;
         margin-top: -400px;
-        
-       
+        margin-right: -400px;
     }
 
     h1{
@@ -47,37 +49,51 @@ body{
     }
 }
 
+@include mobile_large{
+    .landing{
+        .landing_img{
+            margin-right: 0;
+        }
+    }
+}
+
 
 .about{
     margin: 30px 0px;
-    padding: 30px 10px;
+    padding: 30px 0px;
     background-color: var(--landing-background);
    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
     
-    .image_container{
+    .about-container{
+        width: 90%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
-        display: inline-block;
-        width: 300px;  
-        
-        img{
+        margin: auto;
+
+        .image_container{
             position: relative;
-            width: 100%;
-            max-width: 300px;  
+            display: inline-block;
+            width: 300px;  
+            margin-bottom: 20px;
+            img{
+                position: relative;
+                width: 100%;
+                max-width: 300px;  
+            }
+            h4{
+                position: relative;
+                text-align: center;
+                font-weight: 100;
+                font-style: normal;
+                font-size: 14px;
+            }
         }
-        h4{
-            position: relative;
-            text-align: center;
-            font-weight: 100;
-            font-style: normal;
-            font-size: 14px;
+        p{
+            max-width: 65ch;
         }
-    }
-    p{
-        max-width: 65ch;
     }
 }
 
@@ -87,20 +103,23 @@ body{
         margin: 70px 0px;
         padding: 30px 30px;
         background-color: var(--landing-background);
-        
-        display: grid;
-        grid-template-columns: 45% 55%;
-        justify-items: center;
-        img{
-            max-width: 250px;
-        }
-        p{
-            align-self: flex-start;
+
+       
+        .about-container{
+            display: grid;
+            grid-template-columns: 40% 60%;
+            
+            .image-container{
+                img{
+                    max-width: 250px;
+                }
+            }
+            p{
+                align-self: flex-start;
+            }
         }
     }
-    .nav_whave{
-        position: relative;
-    }
+    
 }
 
 
@@ -198,9 +217,12 @@ body{
             margin: 50px 0;
 
             position: relative;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            p{margin-right: 30px;}
+            display: flex;
+            flex-direction: column;
+            
+            & > p{
+                margin-bottom: 30px;
+            }
            
             
         }
@@ -264,7 +286,23 @@ body{
     }
 }
 
+@include mobile_large{
+    .contact{
+        .contact-container{
+            .direct-contact{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
 
+                & > p{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+
+    grid-template-columns: 2fr 1fr;
+}
 
 
 .recensions{

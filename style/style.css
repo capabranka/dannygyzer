@@ -218,6 +218,7 @@ a {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
 }
 
 .landing {
@@ -236,6 +237,7 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
   margin-top: -400px;
+  margin-right: -400px;
 }
 
 .landing h1 {
@@ -246,10 +248,21 @@ body {
   max-width: 15ch;
 }
 
+@media screen and (min-width: 768px) {
+  .landing .landing_img {
+    margin-right: 0;
+  }
+}
+
 .about {
   margin: 30px 0px;
-  padding: 30px 10px;
+  padding: 30px 0px;
   background-color: var(--landing-background);
+}
+
+.about .about-container {
+  width: 90%;
+  max-width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -261,21 +274,23 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  margin: auto;
 }
 
-.about .image_container {
+.about .about-container .image_container {
   position: relative;
   display: inline-block;
   width: 300px;
+  margin-bottom: 20px;
 }
 
-.about .image_container img {
+.about .about-container .image_container img {
   position: relative;
   width: 100%;
   max-width: 300px;
 }
 
-.about .image_container h4 {
+.about .about-container .image_container h4 {
   position: relative;
   text-align: center;
   font-weight: 100;
@@ -283,7 +298,7 @@ body {
   font-size: 14px;
 }
 
-.about p {
+.about .about-container p {
   max-width: 65ch;
 }
 
@@ -292,21 +307,19 @@ body {
     margin: 70px 0px;
     padding: 30px 30px;
     background-color: var(--landing-background);
+  }
+  .about .about-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 45% 55%;
-        grid-template-columns: 45% 55%;
-    justify-items: center;
+    -ms-grid-columns: 40% 60%;
+        grid-template-columns: 40% 60%;
   }
-  .about img {
+  .about .about-container .image-container img {
     max-width: 250px;
   }
-  .about p {
+  .about .about-container p {
     -ms-flex-item-align: start;
         align-self: flex-start;
-  }
-  .nav_whave {
-    position: relative;
   }
 }
 
@@ -407,14 +420,17 @@ body {
 .contact .contact-container .direct-contact {
   margin: 50px 0;
   position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 2fr 1fr;
-      grid-template-columns: 2fr 1fr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.contact .contact-container .direct-contact p {
-  margin-right: 30px;
+.contact .contact-container .direct-contact > p {
+  margin-bottom: 30px;
 }
 
 .contact .contact-container .form-area h3 {
@@ -471,6 +487,20 @@ body {
 
 .contact-data .contact-line p {
   padding-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .contact .contact-container .direct-contact {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 1fr;
+        grid-template-columns: 2fr 1fr;
+  }
+  .contact .contact-container .direct-contact > p {
+    margin-right: 20px;
+  }
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
 }
 
 .recensions {
