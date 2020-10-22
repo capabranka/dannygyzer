@@ -1,0 +1,377 @@
+@import "nav";
+
+
+:root{
+    --nav-bg-color: #FFDD00;
+    --grey-shade: #707070;
+    --black-shade: #373737;
+    --landing-background: #3F9DB1;
+    --footer-color: #9C9C9C;
+    --footer-font: #364346;
+}
+a{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing{
+    display: flex;
+    justify-content: end;
+    
+    width: 100%;
+    height: 400px;
+    background-color: var(--landing-background);
+
+    .landing_img{
+        object-fit: cover;
+        margin-top: -400px;
+        
+       
+    }
+
+    h1{
+        position: absolute;
+        margin: 100px 100px ;
+        font-size: 50px;
+        color: var(--nav-bg-color);
+
+        max-width: 15ch;
+    }
+}
+
+
+.about{
+    margin: 30px 0px;
+    padding: 30px 10px;
+    background-color: var(--landing-background);
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+    .image_container{
+        position: relative;
+        display: inline-block;
+        width: 300px;  
+        
+        img{
+            position: relative;
+            width: 100%;
+            max-width: 300px;  
+        }
+        h4{
+            position: relative;
+            text-align: center;
+            font-weight: 100;
+            font-style: normal;
+            font-size: 14px;
+        }
+    }
+    p{
+        max-width: 65ch;
+    }
+}
+
+
+@include mobile_large{
+    .about{
+        margin: 70px 0px;
+        padding: 30px 30px;
+        background-color: var(--landing-background);
+        
+        display: grid;
+        grid-template-columns: 45% 55%;
+        justify-items: center;
+        img{
+            max-width: 250px;
+        }
+        p{
+            align-self: flex-start;
+        }
+    }
+    .nav_whave{
+        position: relative;
+    }
+}
+
+
+.blog{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 90%;
+    align-items: center;
+    margin: auto;
+    .blogpost{
+        position: relative;
+        display: flex;
+        .blog-container{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+                       
+            margin: 50px auto;
+            align-items: center;
+
+            .image_container{
+                position: relative;
+                margin: 0;
+                img{
+                    width: 300px;
+                    border-radius: 20% 0 20% 0;
+                    margin: 0  20px;
+                }
+            }
+            h1{
+                margin-bottom: 20px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@include mobile_large{
+    .blog{
+        .blogpost{
+            .blog-container{
+                display: inline;
+            }
+        }
+    }
+    .blog{
+        .blogpost:nth-of-type(odd){
+            .blog-container{
+                .image_container{
+                    float: left;
+                    img{
+                        margin: 0;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+        .blogpost:nth-of-type(even){
+            .blog-container{
+                .image_container{
+                    float: right;
+                    img{
+                        margin: 0;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.contact{
+    background-color: var(--nav-bg-color);
+    padding: 50px 10px;
+    color: var(--landing-background);
+  
+    .contact-container{
+        position: relative;
+        display: block;
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto;
+
+
+        h2{
+           margin-bottom: 30px;
+            color: var(--landing-background);
+        }
+
+
+        .direct-contact{
+            margin: 50px 0;
+
+            position: relative;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            p{margin-right: 30px;}
+           
+            
+        }
+
+
+        .form-area{
+            h3{
+                font-weight: 600;
+                font-size: 16px;
+            }
+               
+            .input-container{
+            
+                display: block;
+                width: 100%;
+                margin: 30px auto;
+                .input-label{
+                    display: block;
+                    margin-bottom: 5px;
+                }
+                .contact-input{
+                    width: 100%;
+                    
+                    padding: 5px;
+                }
+            }
+                
+            .contact-button{
+                width: 300px;
+                height: 50px;
+                background-color: var(--landing-background);
+                border: none;
+                border-radius: 5px 0 5px 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+                color: var(--black-shade);
+            }
+        }
+    }
+}
+
+.contact-data{         
+    :first-child{
+        margin-bottom: 20px;
+    }
+    .contact-line{
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 8fr;
+        width: 250px;
+        margin-top: 10px;
+
+        .icon{
+            font-size: 26px;
+            margin: 0 auto;
+        }
+        p{
+            padding-left: 20px;
+        }
+    }
+}
+
+
+
+
+.recensions{
+    margin: 30px 0;
+    position: relative;
+
+    .recension-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+        
+        h1{
+            margin: 30px;
+            margin-left: 0;
+        }
+
+        .recension{
+            position: relative;
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px auto;
+
+            .image_container{
+                position: relative;
+                margin: 20px 50px 30px 0;
+                img{
+                    width: 150px;
+                    border-radius: 20%;
+                }
+                h4{
+                    position: relative;
+                    text-align: center;
+                    font-weight: 100;
+                    font-style: normal;
+                    font-size: 14px;
+                }
+            }
+        
+        }
+    }
+}
+
+@include mobile_large{
+    .recensions{
+        .recension-container{
+            .recension{
+               flex-direction: row;
+              
+                .image_container{
+                    margin: 0 50px 0 0;
+                }
+                p{
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+}
+
+
+
+footer{
+    background-color: var(--footer-color);
+    width: 100%;
+    height: 400px;
+    padding: 50px 0px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--footer-font);
+    
+    
+    .footer-container{
+        position: relative;
+        
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+
+
+
+        .misc-information-area{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            
+            .impressum{
+                a{
+                    text-decoration: none;
+                    color: var(--footer-font);
+                }
+
+
+                :first-child::after{
+                    content: " | ";
+                    pointer-events: none;
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

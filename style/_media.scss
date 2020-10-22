@@ -1,0 +1,40 @@
+$breakpoints:(
+    // Small smartphones like the iPhone se
+    screen-xs-max: 400px,
+    // Small tablets and large smartphones (landscape view)
+    screen-sm-min: 567px,
+    // Small tablets (portrait view)
+    screen-m-min: 768px,
+    // Tablets and small desktops
+    screen-lg-min: 992px,
+    // Large tablets and desktops
+    screen-xl-min: 1200px
+);
+
+@function screenSize($screentype){
+    @return map-get($breakpoints, $screentype);
+}
+
+@mixin mobile_small{
+    @media screen and (max-width: screenSize(screen-xs-max)){
+        @content;
+    }
+}
+
+@mixin mobile_large{
+    @media screen and (min-width: screenSize(screen-m-min)){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media screen and (min-width: screenSize(screen-lg-min)){
+        @content;
+    }
+}
+
+@mixin desktop_large{
+    @media screen and (min-width: screenSize(screen-xl-min)){
+        @content;
+    }
+}
